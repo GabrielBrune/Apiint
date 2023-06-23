@@ -6,7 +6,7 @@ import { PontosArmazenados } from "src/pontos/pontos.dm";
 @Injectable()
 @ValidatorConstraint({async:true})
 export class EmailUnicoValidator implements ValidatorConstraintInterface{
-    constructor (private clsPontosArmazenados:    PontosArmazenados){}
+    constructor (private clsPontosArmazenados: PontosArmazenados){}
     
     async validate(value: any, validationArguments?: ValidationArguments): Promise<boolean> {
         const ValidaEmail = await this.clsPontosArmazenados.ValidaEmail(value);

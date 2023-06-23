@@ -3,9 +3,7 @@ import { PointEntity } from "./pontos.Entity";
 
 @Injectable()
 export class PontosArmazenados{
-    removerPonto( id:string ){
-         throw new Error("Method not implemented.");
-    }
+    
     #point:PointEntity[] = [];
     
     async addPoint(pontos:PointEntity){
@@ -44,4 +42,24 @@ export class PontosArmazenados{
         )
         return Pointnew;
     }
+
+    async removePoint(id: string){
+        const possivelPoint= this.buscarPointID(id);
+        this.#point = this.#point.filter(
+            usuarioSalvo => usuarioSalvo.id !==id
+        )
+
+        if(!possivelPoint){
+            throw new Error('Usuario nao encontrado');
+        }
+        return possivelPoint;
+    }
+
+    async buscarPointNome(nome: string){
+        const possivelPoint = this.#point.find(
+            pointSalve => pointSalve.nome === nome
+        );
+        return possivelPoint; 
+    }
+
 }
