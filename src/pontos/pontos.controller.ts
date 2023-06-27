@@ -3,7 +3,7 @@ import { ListaPontoDTO } from "./dto/listaPonto.dto";
 import { PontosArmazenados } from "./pontos.dm";
 
 @Controller('/pontos')
-export class PontoModules{
+export class PontoController{
     constructor(private clsPontosArmazenados: PontosArmazenados){
     }
 

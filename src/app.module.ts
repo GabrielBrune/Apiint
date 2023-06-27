@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { PontoModules } from './pontos/pontos.controller';
+import { PontoModules } from './pontos/pontos.module';
+
 
 @Module({
-  imports: [],
-  controllers: [PontoModules],
+  imports: [PontoModules],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
