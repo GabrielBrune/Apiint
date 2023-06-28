@@ -50,7 +50,7 @@ export class PontosArmazenados{
         )
 
         if(!possivelPoint){
-            throw new Error('Usuario nao encontrado');
+            throw new Error('Usuario nao encontrado!');
         }
         return possivelPoint;
     }
