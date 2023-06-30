@@ -1,6 +1,6 @@
 import { IsInt, IsOptional, IsString } from "class-validator";
 
-export default class NewPoint{
+export default class AttPoint{
     
     @IsString()
     @IsOptional()
