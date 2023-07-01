@@ -6,6 +6,6 @@ export class AdmArmazenado{
     #admusuario: AdmUsuario[] = [];
 
     BuscarLogin(){
-        
+        return this.#admusuario 
     }
 }
