@@ -1,8 +1,15 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 import { AdmArmazenado } from "./usuario.dm";
 
-@Controller('/pontos')
+@Controller('/adm')
 export class AdmUserController{
     constructor(private clsUsuarioAdmArmazenado: AdmArmazenado){
     }
+
+    @Get()
+    async RetornoPontosId(){
+        const pontosListados = await this.clsUsuarioAdmArmazenado.BuscarLogin();
+            return pontosListados;
+    }
+    
 }
