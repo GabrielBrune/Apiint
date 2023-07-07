@@ -13,8 +13,8 @@ export class PontoController{
     constructor(private clsPontosArmazenados: PontosArmazenados){
     }
 
-    @Get()
-    async RetornoPontosNome(){
+    @Get(':status')
+    async RetornoPontosNome(@Param('status') status: boolean){
         const pontosListados = await this.clsPontosArmazenados.Point;
         const ListaHome = pontosListados.map(
             ponstos => new ListaPontoDTO(
@@ -27,9 +27,15 @@ export class PontoController{
     }
 
     @Get('id:-id')
-    async RetornoPontosId(@Param('id') id: string){
-        const pontosListados = await this.clsPontosArmazenados.buscarPointNome(id);
+    async RetornoPontosId(@Param('nome') nome: string){
+        const pontosListados = await this.clsPontosArmazenados.buscarPointNome(nome);
             return pontosListados;
+    }
+
+    @Get('Pedidos')
+    async RetornoPedidos(@Param('id') id: string){
+        const Pedidoslistados = await this.clsPontosArmazenados.buscarPointID(id);
+        return Pedidoslistados
     }
 
     @Post('fomulariocoleta')
@@ -43,7 +49,8 @@ export class PontoController{
             novoPost.cidade, novoPost.estado,
             novoPost.dataInicio, novoPost.dataTermino,
             novoPost.pontoRef, novoPost.descricao,
-            novoPost.telefone, novoPost.email);
+            novoPost.telefone, novoPost.email,
+            novoPost.status);
 
             this.clsPontosArmazenados.addPoint(criarPonto)
             retornoPonto={
