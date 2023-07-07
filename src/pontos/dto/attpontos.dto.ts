@@ -1,4 +1,4 @@
-import { IsInt, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsInt, IsOptional, IsString } from "class-validator";
 
 export default class AttPoint{
     
@@ -57,4 +57,8 @@ export default class AttPoint{
     @IsString()
     @IsOptional()
     email:string;
+
+    @IsBoolean()
+    @IsOptional()
+    status:Boolean;
 }

@@ -62,4 +62,12 @@ export class PontosArmazenados{
         return possivelPoint; 
     }
 
+    async buscarPointStaus(status: boolean){
+        const possivelPoint = this.#point.filter(
+            pointSalve => pointSalve.status === status
+        );
+      
+        return possivelPoint;
+    }
+
 }
