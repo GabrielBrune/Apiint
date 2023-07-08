@@ -15,7 +15,7 @@ export class PontoController{
 
     @Get(':status')
     async RetornoPontosNome(@Param('status') status: boolean){
-        const pontosListados = await this.clsPontosArmazenados.Point;
+        const pontosListados = await this.clsPontosArmazenados.buscarPointStaus(status);
         const ListaHome = pontosListados.map(
             ponstos => new ListaPontoDTO(
                 ponstos.nome,
