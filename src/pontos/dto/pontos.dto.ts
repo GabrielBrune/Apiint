@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsBoolean } from "class-validator";
+import { IsString, IsBoolean } from "class-validator";
 
 export class CriarPonto{
     
@@ -26,16 +26,16 @@ export class CriarPonto{
     @IsString()
     estado: string;
 
-    @IsInt()
+    @IsString()
     dataInicio: string;
     
-    @IsInt()
+    @IsString()
     dataTermino: string;
     
     @IsString()
     descricao: string;
     
-    @IsInt()
+    @IsString()
     telefone: string;
     
     @IsString()

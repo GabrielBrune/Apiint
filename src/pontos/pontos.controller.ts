@@ -26,7 +26,7 @@ export class PontoController{
             return ListaHome ;
     }
 
-    @Get('id:-id')
+    @Get('detalhamento:nome')
     async RetornoPontosId(@Param('nome') nome: string){
         const pontosListados = await this.clsPontosArmazenados.buscarPointNome(nome);
             return pontosListados;
@@ -38,7 +38,7 @@ export class PontoController{
         return Pedidoslistados
     }
 
-    @Post('fomulariocoleta')
+    @Post('formulariocoleta')
     async FormularioColeta(@Body() novoPost: CriarPonto){
         var retornoPonto;
         var criarPonto = new PointEntity(
@@ -49,8 +49,7 @@ export class PontoController{
             novoPost.cidade, novoPost.estado,
             novoPost.dataInicio, novoPost.dataTermino,
             novoPost.descricao, novoPost.telefone, 
-            novoPost.email,
-            novoPost.status);
+            novoPost.email, novoPost.status);
 
             this.clsPontosArmazenados.addPoint(criarPonto)
             retornoPonto={

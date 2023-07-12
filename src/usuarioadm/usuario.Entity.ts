@@ -11,8 +11,8 @@ export class AdmUsuario{
         return '***********'
     }
 
-    // set senha (newPassword){
-    //     this.#senha = newPassword
+    //  set senha (newPassword){
+    // this.#senha = newPassword
     // }
     
 }
