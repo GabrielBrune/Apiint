@@ -26,7 +26,7 @@ export class PontoController{
             return ListaHome ;
     }
 
-    @Get('detalhamento:nome')
+    @Get('detalhamento')
     async RetornoPontosId(@Param('nome') nome: string){
         const pontosListados = await this.clsPontosArmazenados.buscarPointNome(nome);
             return pontosListados;
