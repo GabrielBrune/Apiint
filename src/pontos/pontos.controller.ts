@@ -32,7 +32,7 @@ export class PontoController{
             return pontosListados;
     }
 
-    @Get('Pedidos')
+    @Get('pedidos')
     async RetornoPedidos(@Param('id') id: string){
         const Pedidoslistados = await this.clsPontosArmazenados.buscarPointID(id);
         return Pedidoslistados
@@ -48,8 +48,8 @@ export class PontoController{
             novoPost.complemento, novoPost.bairro,
             novoPost.cidade, novoPost.estado,
             novoPost.dataInicio, novoPost.dataTermino,
-            novoPost.pontoRef, novoPost.descricao,
-            novoPost.telefone, novoPost.email,
+            novoPost.descricao, novoPost.telefone, 
+            novoPost.email,
             novoPost.status);
 
             this.clsPontosArmazenados.addPoint(criarPonto)

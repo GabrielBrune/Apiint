@@ -8,11 +8,10 @@ export class PointEntity{
     bairro: string;
     cidade: string;
     estado: string;
-    dataInicio: BigInteger;
-    dataTermino: BigInteger;
-    pontoRef: string;
+    dataInicio: string;
+    dataTermino: string;
     descricao: string;
-    telefone: BigInteger;
+    telefone: string;
     email:string;
     status:Boolean;
     constructor(
@@ -20,10 +19,10 @@ export class PointEntity{
         cep: string, logradouro:string,
         numero:string, complemento: string,
         bairro: string, cidade: string,
-        estado: string, dataInicio: BigInteger,
-        dataTermino: BigInteger, pontoRef: string,
-        descricao: string, telefone: BigInteger,
-        email:string, status:Boolean){
+        estado: string, dataInicio: string,
+        dataTermino: string, descricao: string, 
+        telefone: string, email:string,
+        status:Boolean){
             this.id = id,
             this.nome = nome,
             this.cep = cep,
@@ -35,7 +34,6 @@ export class PointEntity{
             this.estado = estado,
             this.dataInicio = dataInicio,
             this.dataTermino = dataTermino,
-            this.pontoRef = pontoRef,
             this.descricao = descricao,
             this.telefone = telefone,
             this.email = email,

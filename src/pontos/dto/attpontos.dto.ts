@@ -36,11 +36,11 @@ export default class AttPoint{
 
     @IsInt()
     @IsOptional()
-    dataInicio: BigInteger;
+    dataInicio: string;
     
     @IsInt()
     @IsOptional()
-    dataTermino: BigInteger;
+    dataTermino: string;
     
     @IsString()
     @IsOptional()
@@ -52,7 +52,7 @@ export default class AttPoint{
     
     @IsInt()
     @IsOptional()
-    telefone: BigInteger;
+    telefone: string;
     
     @IsString()
     @IsOptional()

@@ -1,20 +1,18 @@
 export class AdmUsuario{
-    login:string
-    #senha:string
+    login:'amdtest'
+    #senha:'teste'
     constructor(
-        login:string,
-        senha:string
     ){
-        this.login = login;
-        this.#senha = senha;
+        this.login 
+        this.#senha 
     }
 
     get senha(){
         return '***********'
     }
 
-    set senha (newPassword){
-        this.#senha = newPassword
-    }
+    // set senha (newPassword){
+    //     this.#senha = newPassword
+    // }
     
 }

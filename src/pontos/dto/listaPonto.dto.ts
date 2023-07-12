@@ -1,7 +1,7 @@
 export class ListaPontoDTO{
     constructor(
         readonly nome:string,
-        readonly dataInicio:BigInteger,
-        readonly dataTermino:BigInteger
+        readonly dataInicio:string,
+        readonly dataTermino:string
     ){}
 }

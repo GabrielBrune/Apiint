@@ -27,19 +27,16 @@ export class CriarPonto{
     estado: string;
 
     @IsInt()
-    dataInicio: BigInteger;
+    dataInicio: string;
     
     @IsInt()
-    dataTermino: BigInteger;
-    
-    @IsString()
-    pontoRef: string;
+    dataTermino: string;
     
     @IsString()
     descricao: string;
     
     @IsInt()
-    telefone: BigInteger;
+    telefone: string;
     
     @IsString()
     email:string;
