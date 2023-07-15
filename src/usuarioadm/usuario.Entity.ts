@@ -1,18 +1,14 @@
+import { Entity } from "typeorm"
+
+@Entity()
 export class AdmUsuario{
-    login:'amdtest'
-    #senha:'teste'
+    login:string
+    #senha: string
     constructor(
-    ){
-        this.login 
-        this.#senha 
-    }
+    ){}
+
 
     get senha(){
         return '***********'
     }
-
-    //  set senha (newPassword){
-    // this.#senha = newPassword
-    // }
-    
 }
