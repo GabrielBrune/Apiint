@@ -5,7 +5,7 @@ import { Pontos } from "./pontos.Entity";
 @Injectable()
 export class PontoService{
     constructor(
-            @Inject('MARCA_REPOSITORY')
+            @Inject('PONTOS_REPOSITORY')
             private pontoRepository: Repository<Pontos>
     ){}
 
