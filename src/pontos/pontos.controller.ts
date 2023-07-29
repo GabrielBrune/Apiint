@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { Pontos } from "./pontos.Entity";
 import { PontoService } from "./pontos.service";
 
@@ -17,6 +17,9 @@ export class PontoController{
 
     // @Put()
 
-    // @Delete()
+    @Delete('remove-:id')
+    async removeMarca(@Param('id') id: string): Promise<void>{
+        this.pontoService.remover(id);
+    }
 
 }

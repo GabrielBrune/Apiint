@@ -19,8 +19,8 @@ export class PontoService{
         });
     }
 
-    async remover(id: string): Promise<void>{
+    async remover(id: string): Promise<void> {
         const user = await this.localizarID(id);
-        await this.pontoRepository.softRemove(user);
-    }
+        await this.pontoRepository.remove(user);
+      }
 }
