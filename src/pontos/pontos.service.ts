@@ -9,6 +9,11 @@ export class PontoService{
             private pontoRepository: Repository<Pontos>
     ){}
 
+    async adicionarPontos(postData: Partial<Pontos>): Promise<Pontos>{
+        const novoPonto = this.pontoRepository.create(postData);
+        return this.pontoRepository.save(novoPonto);
+    }
+
     async listar(): Promise<Pontos[]>{
         return this.pontoRepository.find();
     }
