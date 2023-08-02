@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PontoModules } from './pontos/pontos.module';
-import { UsuarioModules } from './usuarioadm/usuario.module';
+import { UsuarioModules } from './user/usuario.module';
 
 
 @Module({
