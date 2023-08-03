@@ -8,15 +8,15 @@ export const databaseProviders = [
                 type:'mysql',
                 host:'localhost',
                 port:3306,
-                username:'root',
-                password:'admin',
-                database:'projetoapi',
+                username:'projetointegrador',
+                password:'projetointegrador@',
+                database:'projetointegrador',
                 entities:[
                     __dirname+ '/../**/*.entity{.ts,.js}',
                 ],
                 synchronize: false,
             });
-
+ 
             return dataSource.initialize();
         },
     },
