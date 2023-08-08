@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { Pontos } from "./pontos.Entity";
 import { PontoService } from "./pontos.service";
 
@@ -13,7 +13,11 @@ export class PontoController{
         return this.pontoService.listar();
     }
 
-    // @Post()
+    @Post()
+    async addPonto(@Body() postData: Partial<Pontos>) {
+        const addPost = await this.pontoService.adicionarPontos(postData);
+        return addPost;
+    }
 
     // @Put()
 
