@@ -1,49 +1,27 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { ENTIDADE } from "src/entidade/entidade.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class Pontos{
+export class PONTOS{
     @PrimaryColumn()
-    id: string;
+    ID: string;
 
     @Column()
-    nome: string;
+    ID_ENTIDADE: string;
 
     @Column()
-    cep: string;
+    IMG: string;
 
     @Column()
-    logradouro: string;
+    DATA_INICIO: string;
 
     @Column()
-    numero: string;
+    DATA_TERMINO: string;
 
     @Column()
-    complemento: string;
+    DESCRICAO: string;
 
-    @Column()
-    bairro: string;
-
-    @Column()
-    cidade: string;
-
-    @Column()
-    estado: string;
-
-    @Column()
-    dataInicio: string;
-
-    @Column()
-    dataTermino: string;
-
-    @Column()
-    descricao: string;
-
-    @Column()
-    telefone: string;
-
-    @Column()
-    email:string;
-
-    @Column()
-    status:Boolean;
-}
+    @ManyToOne(() => ENTIDADE, entidade => entidade.ponto)
+    @JoinColumn({name:"ID_ENTIDADE", referencedColumnName:"ID"})
+    entidade:ENTIDADE;
+}   

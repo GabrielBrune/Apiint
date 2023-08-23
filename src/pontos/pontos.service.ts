@@ -1,26 +1,26 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { Repository } from "typeorm/repository/Repository";
-import { Pontos } from "./pontos.Entity";
+import { PONTOS } from "./pontos.Entity";
 
 @Injectable()
 export class PontoService{
     constructor(
             @Inject('PONTOS_REPOSITORY')
-            private pontoRepository: Repository<Pontos>
+            private pontoRepository: Repository<PONTOS>
     ){}
 
-    async adicionarPontos(postData: Partial<Pontos>): Promise<Pontos>{
+    async adicionarPontos(postData: Partial<PONTOS>): Promise<PONTOS>{
         const novoPonto = this.pontoRepository.create(postData);
         return this.pontoRepository.save(novoPonto);
     }
 
-    async listar(): Promise<Pontos[]>{
+    async listar(): Promise<PONTOS[]>{
         return this.pontoRepository.find();
     }
    
-    async localizarID(id: string): Promise<Pontos>{
+    async localizarID(ID: string): Promise<PONTOS>{
         return this.pontoRepository.findOne({
-        where: {id,},
+        where: {ID,},
         });
     }
 

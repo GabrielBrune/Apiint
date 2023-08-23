@@ -1,10 +1,10 @@
 import { DataSource } from "typeorm";
-import {Pontos} from "./pontos.Entity";
+import {PONTOS} from "./pontos.Entity";
 
 export const PontoProviders = [
     {
         provide: 'PONTOS_REPOSITORY',
-        useFactory: (DataSource: DataSource) => DataSource.getRepository(Pontos),
+        useFactory: (DataSource: DataSource) => DataSource.getRepository(PONTOS),
         inject: ['DATA_SOURCE']
     }
 ]
