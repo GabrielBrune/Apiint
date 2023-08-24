@@ -7,6 +7,9 @@ export class ENTIDADE{
     ID:string;
 
     @Column()
+    NOME:string;
+
+    @Column()
     LOGRADOURO:string;
 
     @Column()
