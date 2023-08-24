@@ -1,9 +1,6 @@
 -- Criação do banco de dados
 CREATE DATABASE projetointegrador;
 
--- Criação do banco de dados
-CREATE DATABASE projetointegrador;
-
 -- Usar o banco de dados criado
 USE projetointegrador;
 
