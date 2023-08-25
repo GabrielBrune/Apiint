@@ -1,23 +1,23 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { RetornoCadastroDTO, RetornoObjDTO } from "src/dto/retorno.dto";
 import { Repository } from "typeorm";
-import { ENTIDADE } from "./entidade.entity";
+import { ENTIDADES } from "./entidade.entity";
 import { v4 as uuid } from "uuid";
 import { CriarEntidadeDTO } from "./dto/entidade.dto";
 
 @Injectable()
-export class MarcaService {
+export class EntidadeService {
   constructor(
-    @Inject('ENTIDADE_REPOSITORY')
-    private entidadeRepository: Repository<ENTIDADE>,
+    @Inject('ENTIDADES_REPOSITORY')
+    private entidadeRepository: Repository<ENTIDADES>,
   ) {}
 
-  async listar(): Promise<ENTIDADE[]> {
+  async listar(): Promise<ENTIDADES[]> {
     return this.entidadeRepository.find();
   }
 
   async inserir(dados: CriarEntidadeDTO): Promise<RetornoCadastroDTO>{
-    let entidade = new ENTIDADE();
+    let entidade = new ENTIDADES();
         entidade.ID = uuid();
         entidade.NOME = dados.NOME;
         entidade.LOGRADOURO = dados.LOGRADOURO;
@@ -47,7 +47,7 @@ export class MarcaService {
     
   }
 
-  localizarID(ID: string): Promise<ENTIDADE> {
+  localizarID(ID: string): Promise<ENTIDADES> {
     return this.entidadeRepository.findOne({
       where: {
         ID,
@@ -64,25 +64,25 @@ export class MarcaService {
   }
 
   async remover(id: string): Promise<RetornoObjDTO> {
-    const marca = await this.localizarID(id);
+    const entidade = await this.localizarID(id);
     
-    return this.entidadeRepository.remove(marca)
+    return this.entidadeRepository.remove(entidade)
     .then((result) => {
       return <RetornoObjDTO>{
-        return: marca,
-        message: "Marca excluida!"
+        return: entidade,
+        message: "Entidade excluida!"
       };
     })
     .catch((error) => {
       return <RetornoObjDTO>{
-        return: marca,
+        return: entidade,
         message: "Houve um erro ao excluir." + error.message
       };
     });  
   }
 
   async alterar(id: string, dados: CriarEntidadeDTO): Promise<RetornoCadastroDTO> {
-    const marca = await this.localizarID(id);
+    const entidade = await this.localizarID(id);
 
     Object.entries(dados).forEach(
       ([chave, valor]) => {
@@ -90,15 +90,15 @@ export class MarcaService {
               return;
           }
 
-          marca[chave] = valor;
+          entidade[chave] = valor;
       }
     )
 
-    return this.entidadeRepository.save(marca)
+    return this.entidadeRepository.save(entidade)
     .then((result) => {
       return <RetornoCadastroDTO>{
-        id: marca.ID,
-        message: "Marca alterada!"
+        id: entidade.ID,
+        message: "Entidade alterada!"
       };
     })
     .catch((error) => {

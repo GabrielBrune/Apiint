@@ -1,8 +1,8 @@
-import { PONTOS } from "src/pontos/pontos.Entity";
+import { PONTOS } from "src/pontos/pontos.entity";
 import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class ENTIDADE{
+export class ENTIDADES{
     @PrimaryColumn()
     ID:string;
 
@@ -37,5 +37,5 @@ export class ENTIDADE{
     EMAIL:string;
 
     @OneToMany(() =>PONTOS, ponto => ponto.entidade)
-    ponto:PONTOS[]
+    ponto:PONTOS[];
 }

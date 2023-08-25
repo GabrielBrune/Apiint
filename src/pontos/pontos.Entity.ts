@@ -1,4 +1,4 @@
-import { ENTIDADE } from "src/entidade/entidade.entity";
+import { ENTIDADES } from "src/entidade/entidade.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
@@ -21,7 +21,7 @@ export class PONTOS{
     @Column()
     DESCRICAO: string;
 
-    @ManyToOne(() => ENTIDADE, entidade => entidade.ponto)
+    @ManyToOne(() => ENTIDADES, entidade => entidade.ponto)
     @JoinColumn({name:"ID_ENTIDADE", referencedColumnName:"ID"})
-    entidade:ENTIDADE;
+    entidade:ENTIDADES;
 }   

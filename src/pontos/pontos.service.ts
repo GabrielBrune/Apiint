@@ -1,12 +1,14 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { EntidadeService } from "src/entidade/entidade.service";
 import { Repository } from "typeorm/repository/Repository";
-import { PONTOS } from "./pontos.Entity";
+import { PONTOS } from "./pontos.entity";
 
 @Injectable()
 export class PontoService{
     constructor(
             @Inject('PONTOS_REPOSITORY')
-            private pontoRepository: Repository<PONTOS>
+            private pontoRepository: Repository<PONTOS>,
+            private readonly entidadeService: EntidadeService,
     ){}
 
     async adicionarPontos(postData: Partial<PONTOS>): Promise<PONTOS>{
