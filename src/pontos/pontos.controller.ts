@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
-import { PONTOS } from "./pontos.Entity";
+import { PONTOS } from "./pontos.entity";
 import { PontoService } from "./pontos.service";
 
 
