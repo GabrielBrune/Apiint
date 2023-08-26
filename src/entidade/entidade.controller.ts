@@ -10,22 +10,4 @@ export class EntidadeController{
     constructor(private readonly EntidadeService: EntidadeService ){
     }
 
-    @Get()
-    async listar(): Promise<ENTIDADES[]>{
-        return this.EntidadeService.listar();
-    }
-
-    @Post()
-    async addEntity(@Body() dados: CriarEntidadeDTO): Promise<RetornoCadastroDTO> {
-        const retorno = await this.EntidadeService.inserir(dados);
-        return retorno
-    }
-
-    // @Put()
-
-    @Delete('remove-:id')
-    async removeMarca(@Param('id') id: string): Promise<void>{
-        this.EntidadeService.remover(id);
-    }
-
 }

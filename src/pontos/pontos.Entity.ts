@@ -7,9 +7,6 @@ export class PONTOS{
     ID: string;
 
     @Column()
-    ID_ENTIDADE: string;
-
-    @Column()
     IMG: string;
 
     @Column()

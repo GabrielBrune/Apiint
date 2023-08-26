@@ -1,6 +1,8 @@
 import { IsNotEmpty, IsString } from "class-validator";
+import { CriarEntidadeDTO } from "src/entidade/dto/entidade.dto";
 
 export class CriarPontosDTO{
+    
     @IsString()
     @IsNotEmpty({message:"Url de imagem nao pode ser vazia!"})
     IMG: string;
@@ -16,5 +18,7 @@ export class CriarPontosDTO{
     @IsNotEmpty({message:"A descrição do local nao pode ser vazia!"})
     DESCRICAO: string;
 
+    @IsString()
+    ENTIDADES:CriarEntidadeDTO;
 
 }

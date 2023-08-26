@@ -55,14 +55,6 @@ export class EntidadeService {
     });
   }
 
-   async listaNomes(): Promise<any[]> {
-    return this.entidadeRepository.find({
-      select:{
-        NOME:true,
-      }
-    });
-  }
-
   async remover(id: string): Promise<RetornoObjDTO> {
     const entidade = await this.localizarID(id);
     

@@ -1,4 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { RetornoCadastroDTO, RetornoObjDTO } from "src/dto/retorno.dto";
+import { CriarPontosDTO } from "./dto/criaPonto.dto";
+import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
 import { PONTOS } from "./pontos.entity";
 import { PontoService } from "./pontos.service";
 
@@ -8,22 +11,18 @@ export class PontoController{
     constructor(private readonly pontoService: PontoService ){
     }
 
-    @Get()
-    async listar(): Promise<PONTOS[]>{
+    @Get('')
+    async listarMarcas(): Promise<ListarPontosEttDTO[]>{
         return this.pontoService.listar();
     }
 
-    @Post('form')
-    async addPonto(@Body() postData: Partial<PONTOS>) {
-        const addPost = await this.pontoService.adicionarPontos(postData);
-        return addPost;
+    @Post('')
+    async cria(@Body() dados: CriarPontosDTO): Promise<RetornoCadastroDTO>{        
+        return this.pontoService.inserir(dados)        
     }
-
-    // @Put()
-
-    @Delete('remove-:id')
-    async removeMarca(@Param('id') id: string): Promise<void>{
-        this.pontoService.remover(id);
+    
+    @Delete(':id')
+    async removeProduto(@Param('id') id: string): Promise<RetornoObjDTO>{
+        return this.pontoService.remover(id);
     }
-
 }
