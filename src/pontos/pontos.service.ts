@@ -24,19 +24,19 @@ export class PontoService{
         .createQueryBuilder('pontos')
         .select('pontos.ID', 'ID')
         .addSelect('pontos.IMG','IMG')    
-        .addSelect('pontos.DATA_INICIO','DATA_INICIO')
-        .addSelect('pontos.DATA_TERMINO','DATA_TERMINO')
+        .addSelect('pontos.DATA_INICIO','DATAINICIO')
+        .addSelect('pontos.DATA_TERMINO','DATATERMINO')
         .addSelect('pontos.DESCRICAO,DESCRICAO')
         .addSelect('ETT.NOME','ENTIDADE')
-        .leftJoin('entidade', 'ETT','produto.ID_ENTIDADE = ETT.id')                     
+        .leftJoin('entidades', 'ETT','produto.ID_ENTIDADE = ETT.id')                     
         .getRawMany());  
   
       const listaRetorno = resultado.map(
         ponto => new (
           ponto.ID,
           ponto.IMG,
-          ponto.DATA_INICIO,
-          ponto.DATA_INICIO,
+          ponto.DATAINICIO,
+          ponto.DATAINICIO,
           ponto.DESCRICAO,
           ponto.ENTIDADE
         )
@@ -47,7 +47,7 @@ export class PontoService{
 
   
   async inserir(dados: CriarPontosDTO): Promise<RetornoCadastroDTO>{
-    let retornoPessoa = await this.entidadeService.inserir(dados.ENTIDADES); 
+    let retornoEntidade = await this.entidadeService.inserir(dados.ENTIDADES); 
 
     let ponto = new PONTOS();
         ponto.ID = uuid();
@@ -55,7 +55,7 @@ export class PontoService{
         ponto.DATA_INICIO = dados.DATA_INICIO;
         ponto.DATA_TERMINO = dados.DATA_TERMINO;
         ponto.DESCRICAO = dados.DESCRICAO;
-        ponto.entidade = await this.entidadeService.localizarID(retornoPessoa.id)
+        ponto.entidade = await this.entidadeService.localizarID(retornoEntidade.id)
         
     return this.pontoRepository.save(ponto)
     .then((result) => {

@@ -16,7 +16,7 @@ export class PontoController{
         return this.pontoService.listar();
     }
 
-    @Post('')
+    @Post('formcoleta')
     async cria(@Body() dados: CriarPontosDTO): Promise<RetornoCadastroDTO>{        
         return this.pontoService.inserir(dados)        
     }
