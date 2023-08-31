@@ -18,7 +18,7 @@ export class CriarPontosDTO{
     @IsNotEmpty({message:"A descrição do local não pode ser vazia!"})
     DESCRICAO: string;
 
-    @IsNotEmpty({message:""})
+    @IsNotEmpty({message:"Nao pode ser vazio"})
     ENTIDADES:CriarEntidadeDTO;
 
 }

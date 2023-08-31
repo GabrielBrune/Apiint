@@ -20,23 +20,23 @@ export class PontoService{
   ){}
 
   async listar(): Promise<ListarPontosEttDTO[]> {
-      var resultado = await (this.entidadeRepository
+      var resultado = await (this.pontoRepository
         .createQueryBuilder('pontos')
-        .select('pontos.ID', 'ID')
-        .addSelect('pontos.IMG','IMG')    
-        .addSelect('pontos.DATA_INICIO','DATAINICIO')
-        .addSelect('pontos.DATA_TERMINO','DATATERMINO')
-        .addSelect('pontos.DESCRICAO,DESCRICAO')
-        .addSelect('ETT.NOME','ENTIDADE')
-        .leftJoin('entidades', 'ETT','produto.ID_ENTIDADE = ETT.id')                     
+        .select('pontos.id', 'ID')
+        .addSelect('pontos.img','IMG')    
+        .addSelect('pontos.data_inicio','DATAINICIO')
+        .addSelect('pontos.data_termino','DATATERMINO')
+        .addSelect('pontos.descricao,DESCRICAO')
+        .addSelect('ETT.nome','ENTIDADE')
+        .leftJoin('entidades', 'ETT','pontos.id_entidade = ETT.id')                     
         .getRawMany());  
   
       const listaRetorno = resultado.map(
-        ponto => new (
+        ponto => new ListarPontosEttDTO (
           ponto.ID,
           ponto.IMG,
-          ponto.DATAINICIO,
-          ponto.DATAINICIO,
+          ponto.DATA_INICIO,
+          ponto.DATA_TERMINO,
           ponto.DESCRICAO,
           ponto.ENTIDADE
         )
