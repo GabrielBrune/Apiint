@@ -24,15 +24,15 @@ export class PontoService{
         .createQueryBuilder('pontos')
         .select('pontos.id', 'ID')
         .addSelect('pontos.img','IMG')    
-        .addSelect('pontos.data_inicio','DATAINICIO')
-        .addSelect('pontos.data_termino','DATATERMINO')
-        .addSelect('pontos.descricao,DESCRICAO')
+        .addSelect('pontos.DATA_INICIO','DATA_INICIO')
+        .addSelect('pontos.DATA_TERMINO','DATA_TERMINO')
+        .addSelect('pontos.descricao','DESCRICAO')
         .addSelect('ETT.nome','ENTIDADE')
-        .leftJoin('entidades', 'ETT','pontos.id_entidade = ETT.id')                     
+        .innerJoinAndSelect('entidades', 'ETT','pontos.id_entidade = ETT.id')                     
         .getRawMany());  
   
       const listaRetorno = resultado.map(
-        ponto => new ListarPontosEttDTO (
+        ponto => new ListarPontosEttDTO (          
           ponto.ID,
           ponto.IMG,
           ponto.DATA_INICIO,

@@ -12,7 +12,7 @@ export class PontoController{
     }
 
     @Get('')
-    async listarMarcas(): Promise<ListarPontosEttDTO[]>{
+    async listar(): Promise<ListarPontosEttDTO[]>{
         return this.pontoService.listar();
     }
 
