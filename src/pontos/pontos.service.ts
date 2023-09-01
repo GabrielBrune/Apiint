@@ -28,6 +28,15 @@ export class PontoService{
         .addSelect('pontos.DATA_TERMINO','DATA_TERMINO')
         .addSelect('pontos.descricao','DESCRICAO')
         .addSelect('ETT.nome','ENTIDADE')
+        .addSelect('ETT.logradouro','LOGRADOURO')
+        .addSelect('ETT.cep','CEP')
+        .addSelect('ETT.numero','NUMERO')
+        .addSelect('ETT.complemento','COMPLEMENTO')
+        .addSelect('ETT.bairro','BAIRRO')
+        .addSelect('ETT.cidade','CIDADE')
+        .addSelect('ETT.estado','ESTADO')
+        .addSelect('ETT.telefone','TELEFONE')
+        .addSelect('ETT.email','EMAIL')
         .innerJoinAndSelect('entidades', 'ETT','pontos.id_entidade = ETT.id')                     
         .getRawMany());  
   
@@ -38,7 +47,16 @@ export class PontoService{
           ponto.DATA_INICIO,
           ponto.DATA_TERMINO,
           ponto.DESCRICAO,
-          ponto.ENTIDADE
+          ponto.ENTIDADE,
+          ponto.LOGRADOURO,
+          ponto.CEP,
+          ponto.NUMERO,
+          ponto.COMPLEMENTO,
+          ponto.BAIRRO,
+          ponto.CIDADE,
+          ponto.ESTADO,
+          ponto.TELEFONE,
+          ponto.EMAIL
         )
       );
   
