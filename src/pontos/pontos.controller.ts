@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common"
 import { RetornoCadastroDTO, RetornoObjDTO } from "src/dto/retorno.dto";
 import { CriarPontosDTO } from "./dto/criaPonto.dto";
 import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
-import { PONTOS } from "./pontos.entity";
 import { PontoService } from "./pontos.service";
 
 
