@@ -1,12 +1,12 @@
 
 export class ListarPontosEttDTO{
     constructor(
-        readonly ID:string,
-        readonly IMG:string,
-        readonly DATA_INICIO: string,
-        readonly DATA_TERMINO: string,
-        readonly DESCRICAO:string,
-        readonly ENTIDADE: string
+        readonly id:string,
+        readonly img:string,
+        readonly dataInicio: string,
+        readonly dataTermino: string,
+        readonly descricao:string,
+        readonly entidade: string
     ){}
 
 }
