@@ -7,13 +7,13 @@ import { CriarPontosDTO } from "./dto/criaPonto.dto";
 import { v4 as uuid } from 'uuid'
 import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
 import { AlteraPontosDTO } from "./dto/alterPonto.dto";
-import { PONTOS } from "src/pontos/pontos.entity";
+import { pontos } from "src/pontos/pontos.entity";
 
 @Injectable()
 export class PontoService{
   constructor(
           @Inject('PONTOS_REPOSITORY')
-          private pontoRepository: Repository<PONTOS>,
+          private pontoRepository: Repository<pontos>,
           @Inject('ENTIDADES_REPOSITORY')
           private entidadeRepository: Repository<ENTIDADES>,
           private readonly entidadeService: EntidadeService,
@@ -67,7 +67,7 @@ export class PontoService{
   async inserir(dados: CriarPontosDTO): Promise<RetornoCadastroDTO>{
     let retornoEntidade = await this.entidadeService.inserir(dados.ENTIDADES); 
 
-    let ponto = new PONTOS();
+    let ponto = new pontos();
         ponto.ID = uuid();
         ponto.IMG = dados.IMG;
         ponto.DATA_INICIO = dados.DATA_INICIO;
@@ -90,7 +90,7 @@ export class PontoService{
     })
   }
 
-  localizarID(ID: string): Promise<PONTOS> {
+  localizarID(ID: string): Promise<pontos> {
     return this.pontoRepository.findOne({
       where: {
         ID,

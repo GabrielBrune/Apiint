@@ -2,7 +2,7 @@ import { ENTIDADES } from "src/entidade/entidade.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class PONTOS{
+export class pontos{
     @PrimaryColumn()
     ID: string;
 
