@@ -1,4 +1,4 @@
-import { PONTOS } from "../pontos/pontos.entity";
+import { PONTOS } from "./pontos/pontos.entity";
 import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
