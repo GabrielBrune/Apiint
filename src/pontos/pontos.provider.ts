@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { PONTOS } from "./pontos.entity";
+import { PONTOS } from "src/pontos/pontos.entity";
 
 export const PontoProviders = [
     {

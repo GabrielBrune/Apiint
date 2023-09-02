@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString} from "class-validator";
+import { IsOptional, IsString } from "class-validator";
 
 
 export class AlteraPontosDTO{
@@ -7,7 +7,7 @@ export class AlteraPontosDTO{
     IMG: string;    
 
     @IsOptional()
-    @IsNumber()
+    @IsString()
     DATA_INICIO: string;
     
     @IsOptional()

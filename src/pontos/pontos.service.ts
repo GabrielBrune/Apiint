@@ -7,7 +7,7 @@ import { CriarPontosDTO } from "./dto/criaPonto.dto";
 import { v4 as uuid } from 'uuid'
 import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
 import { AlteraPontosDTO } from "./dto/alterPonto.dto";
-import { PONTOS } from "./pontos.entity";
+import { PONTOS } from "src/pontos/pontos.entity";
 
 @Injectable()
 export class PontoService{
