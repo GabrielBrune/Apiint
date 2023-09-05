@@ -5,7 +5,7 @@ import { EntidadeService } from "src/entidade/entidade.service";
 import { Repository } from "typeorm/repository/Repository";
 import { CriarPontosDTO } from "./dto/criaPonto.dto";
 import { v4 as uuid } from 'uuid'
-import { ListarPontosEttDTO } from "./dto/listarPontoEtt.dto";
+import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
 import { AlteraPontosDTO } from "./dto/alterPonto.dto";
 import { PONTOS } from "src/pontos/pontos.entity";
 
