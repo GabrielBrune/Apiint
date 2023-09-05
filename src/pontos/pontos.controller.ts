@@ -20,7 +20,7 @@ export class PontoController{
         return this.pontoService.inserir(dados)        
     }
     
-    @Delete('id:id')
+    @Delete('id')
     async removeProduto(@Param('id') id: string): Promise<RetornoObjDTO>{
         return this.pontoService.remover(id);
     }

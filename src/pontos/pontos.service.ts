@@ -104,7 +104,7 @@ export class PontoService{
     
     return this.pontoRepository.remove(pontos)
     .then(async (result) => {
-      const pessoa = await this.entidadeService.remover(pontos.entidade.ID);
+      const entidade = await this.entidadeService.remover(pontos.entidade.ID);
       return <RetornoObjDTO>{
         return: pontos,
         message: "Ponto excluida!"
