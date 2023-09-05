@@ -5,15 +5,15 @@ import { EntidadeService } from "src/entidade/entidade.service";
 import { Repository } from "typeorm/repository/Repository";
 import { CriarPontosDTO } from "./dto/criaPonto.dto";
 import { v4 as uuid } from 'uuid'
-import { ListarPontosEttDTO } from "./dto/listarPontoETT.dto";
+import { ListarPontosEttDTO } from "./dto/listarpontoett.dto";
 import { AlteraPontosDTO } from "./dto/alterPonto.dto";
-import { pontos } from "src/pontos/pontos.entity";
+import { PONTOS } from "src/pontos/pontos.entity";
 
 @Injectable()
 export class PontoService{
   constructor(
           @Inject('PONTOS_REPOSITORY')
-          private pontoRepository: Repository<pontos>,
+          private pontoRepository: Repository<PONTOS>,
           @Inject('ENTIDADES_REPOSITORY')
           private entidadeRepository: Repository<ENTIDADES>,
           private readonly entidadeService: EntidadeService,
@@ -67,7 +67,7 @@ export class PontoService{
   async inserir(dados: CriarPontosDTO): Promise<RetornoCadastroDTO>{
     let retornoEntidade = await this.entidadeService.inserir(dados.ENTIDADES); 
 
-    let ponto = new pontos();
+    let ponto = new PONTOS();
         ponto.ID = uuid();
         ponto.IMG = dados.IMG;
         ponto.DATA_INICIO = dados.DATA_INICIO;
@@ -90,7 +90,7 @@ export class PontoService{
     })
   }
 
-  localizarID(ID: string): Promise<pontos> {
+  localizarID(ID: string): Promise<PONTOS> {
     return this.pontoRepository.findOne({
       where: {
         ID,
